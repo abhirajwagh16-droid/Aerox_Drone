@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary active" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-user"></i> Login / Register</a>
+                <a href="enroll.html" class="btn-primary btn-nav-enroll" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Authentication Form Panel Wrapper -->
+    <section class="auth-wrapper" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; padding-top: 100px;">
+        <div class="auth-container glass-card" style="margin: 0; width: 100%;">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-target="loginPanel">Login</button>
+                <button class="auth-tab" data-target="registerPanel">Register Student</button>
+            </div>
+
+            <!-- Login Panel -->
+            <div id="loginPanel" class="auth-form-panel active">
+                <h3 style="font-size: 22px; margin-bottom: 20px; text-align: center; color: var(--color-primary);">Sign In To Your Account</h3>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="name@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+                            <span class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                        </div>
+                        <div style="text-align: right; margin-top: 8px;">
+                            <a href="#" onclick="switchAuthTab('forgotPasswordPanel')" style="font-size: 13px; color: var(--color-primary); text-decoration: none;">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 15px;">Login</button>
+                </form>
+                <div style="margin-top: 20px; text-align: center; font-size: 13px; color: var(--color-text-muted);">
+                    <p>Demo Admin Account:<br><strong>admin@droneacademy.com</strong> / <strong>admin123</strong></p>
+                </div>
+            </div>
+
+            <!-- Registration Panel -->
+            <div id="registerPanel" class="auth-form-panel">
+                <h3 style="font-size: 22px; margin-bottom: 20px; text-align: center; color: var(--color-secondary);">Create Student Profile</h3>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="name@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="registerPassword" class="form-control" placeholder="Minimum 6 characters" minlength="6" required>
+                            <span class="password-toggle" onclick="togglePasswordVisibility('registerPassword', this)">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 15px; background: linear-gradient(135deg, var(--color-secondary) 0%, #00b0ff 100%); box-shadow: var(--glow-shadow-secondary);">Register</button>
+                </form>
+            </div>
+
+            <!-- Forgot Password Panel -->
+            <div id="forgotPasswordPanel" class="auth-form-panel">
+                <h3 style="font-size: 22px; margin-bottom: 20px; text-align: center; color: var(--color-primary);">Reset Password</h3>
+                <p style="text-align: center; font-size: 14px; color: var(--color-text-muted); margin-bottom: 20px;">Enter your registered email and a new password.</p>
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="resetEmail">Email Address</label>
+                        <input type="email" id="resetEmail" class="form-control" placeholder="name@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resetPassword">New Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="resetPassword" class="form-control" placeholder="Minimum 6 characters" minlength="6" required>
+                            <span class="password-toggle" onclick="togglePasswordVisibility('resetPassword', this)">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 15px;">Reset Password</button>
+                </form>
+                <div style="margin-top: 20px; text-align: center; font-size: 14px;">
+                    <a href="#" onclick="switchAuthTab('loginPanel')" style="color: var(--color-text-muted); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-drone"></i>
+                    <span>AeroAcademy</span>
+                </a>
+                <p>Aero Drone Academy is India's leading flight training institute, offering modern simulators, fields, and certified master instructors.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> DGCA Flight Training</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Agriculture Survey</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Drone Building Lab</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> FPV Racing Course</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> School STEM (5th-10th)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Our Academy</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Media Gallery</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive the latest updates about course batches and drone flight workshops.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter email" style="padding: 10px 15px;" required>
+                    <button class="btn-primary" style="padding: 10px 18px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aero Drone Academy. All Rights Reserved. Designed under flight safety protocols.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

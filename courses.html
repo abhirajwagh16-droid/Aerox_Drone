@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses & School Training - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-user"></i> Login / Register</a>
+                <a href="enroll.html" class="btn-primary btn-nav-enroll" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="gradient-text">Drone Training Programs</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>Courses</span>
+        </div>
+    </section>
+
+    <!-- Professional Courses Section -->
+    <section class="courses-section">
+        <div class="section-header">
+            <span class="hero-tag">ADULT & ENTERPRISE</span>
+            <h2>Commercial Pilot Certification Courses</h2>
+            <p>Select a career track below. All courses include theoretical study, simulator flight logs, and live field evaluations.</p>
+        </div>
+
+        <!-- This container is populated dynamically by JS, with static SEO fallback -->
+        <div class="courses-grid" id="coursesDisplayGrid">
+            <!-- Course 1 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="DGCA Drone Pilot Training">
+                    <span class="course-badge">DGCA Compliant</span>
+                </div>
+                <div class="course-body">
+                    <h3>DGCA Drone Pilot Training</h3>
+                    <p>Official license training covering national airspace regulations, flight planning, safety logs, and simulator checks.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Beginner</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=DGCA%20Drone%20Pilot%20Training">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=400&q=80" alt="Agriculture Drone">
+                    <span class="course-badge">Precision Agri</span>
+                </div>
+                <div class="course-body">
+                    <h3>Agriculture Drone Training</h3>
+                    <p>Learn agricultural UAV flight parameters, dynamic crop liquid spraying calibrations, and multi-spectral NDVI mapping.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 7 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Intermediate</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Agriculture%20Drone%20Training">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=400&q=80" alt="Survey & Mapping">
+                    <span class="course-badge">Surveying</span>
+                </div>
+                <div class="course-body">
+                    <h3>Survey & Mapping</h3>
+                    <p>Master GIS coordinates, photogrammetry outputs, Pix4D model reconstruction, and drone topographic surveys.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 6 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Intermediate</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Survey%20%26%20Mapping">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b904737d88?auto=format&fit=crop&w=400&q=80" alt="FPV Drone Training">
+                    <span class="course-badge">Acro Flight</span>
+                </div>
+                <div class="course-body">
+                    <h3>FPV Drone Training</h3>
+                    <p>High-speed acrobatics, manual rate flying controls, custom video frequency pairing, and goggles telemetry diagnostics.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Advanced</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=FPV%20Drone%20Training">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" alt="Drone Building Lab">
+                    <span class="course-badge">Engineering</span>
+                </div>
+                <div class="course-body">
+                    <h3>Drone Building Workshop</h3>
+                    <p>Assemble dynamic quadcopters from scratch: learn ESC wiring, flight controller flashing, receiver binding and frame mechanics.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Beginner</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Drone%20Building%20Workshop">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=400&q=80" alt="Drone Repair">
+                    <span class="course-badge">Diagnostics</span>
+                </div>
+                <div class="course-body">
+                    <h3>Drone Repair & Maintenance</h3>
+                    <p>Learn motor stator replacement, frame diagnostics, receiver debugging, and IMU calibrations.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Beginner</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Drone%20Repair%20%26%20Maintenance">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 7 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Cinematic Photography">
+                    <span class="course-badge">Cinematography</span>
+                </div>
+                <div class="course-body">
+                    <h3>Aerial Photography & Videography</h3>
+                    <p>Cinematic framing, panning maneuvers, lighting setups, shutter speed ND filter matches, and post-production coloring.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 3 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Beginner</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Aerial%20Photography%20%26%20Videography">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 8 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" alt="GIS Analysis">
+                    <span class="course-badge">Geospatial</span>
+                </div>
+                <div class="course-body">
+                    <h3>GIS & Spatial Analysis</h3>
+                    <p>Learn spatial database modeling, processing digital terrains in QGIS, and contour alignment overlay techniques.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Intermediate</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=GIS%20%26%20Spatial%20Analysis">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 9 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80" alt="Drone Coding">
+                    <span class="course-badge">STEM / Python</span>
+                </div>
+                <div class="course-body">
+                    <h3>Autonomous Drone Coding & Python</h3>
+                    <p>Program micro-drones using Scratch and Python. Master waypoint navigation, indoor obstacle loops, and automated flip sequences.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> STEM / Beginner</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Autonomous%20Drone%20Coding%20%26%20Python">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 10 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=400&q=80" alt="AI Computer Vision">
+                    <span class="course-badge">Edge AI</span>
+                </div>
+                <div class="course-body">
+                    <h3>AI & Computer Vision for Drones</h3>
+                    <p>Deploy OpenCV and YOLO models on Raspberry Pi / Jetson edge devices for real-time target tracking and gesture control.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 7 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Advanced</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=AI%20%26%20Computer%20Vision%20for%20Drones">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 11 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=400&q=80" alt="3D CAD Drone Printing">
+                    <span class="course-badge">3D Design</span>
+                </div>
+                <div class="course-body">
+                    <h3>3D CAD Design & Drone Printing</h3>
+                    <p>Design customized quadcopter frames in Fusion 360, print with carbon-fiber filament, and run stress analysis.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> STEM / Intermediate</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=3D%20CAD%20Design%20%26%20Drone%20Printing">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 12 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="Thermal Inspection">
+                    <span class="course-badge">Enterprise</span>
+                </div>
+                <div class="course-body">
+                    <h3>Thermal Inspection & Industrial UAV</h3>
+                    <p>Radiometric sensor calibration, solar panel hotspot detection, wind turbine integrity audits, and thermal reporting.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 6 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Enterprise</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Thermal%20Inspection%20%26%20Industrial%20UAV">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 13 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Drone Swarm">
+                    <span class="course-badge">Swarm Tech</span>
+                </div>
+                <div class="course-body">
+                    <h3>Drone Swarm Robotics</h3>
+                    <p>Multi-agent communication protocols, swarm path planning algorithms, synchronized flight mesh, and sky light shows.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Advanced</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Drone%20Swarm%20Robotics">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 14 -->
+            <div class="course-card glass-card">
+                <div class="course-image-container">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Search and Rescue">
+                    <span class="course-badge">Emergency</span>
+                </div>
+                <div class="course-body">
+                    <h3>Search & Rescue (SAR) Drone Ops</h3>
+                    <p>Thermal search grid protocols, payload release mechanisms for survival gear, emergency comms, and disaster field ops.</p>
+                    <div class="course-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days</span>
+                        <span><i class="fa-solid fa-signal"></i> Intermediate</span>
+                    </div>
+                    <div class="course-action">
+                        <a href="enroll.html?course=Search%20%26%20Rescue%20(SAR)%20Drone%20Ops">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Junior Pilot Curriculum (Grades 5th-10th) -->
+    <section class="junior-pilot-section" style="max-width: 1200px; margin: 60px auto;">
+        <div class="section-header">
+            <span class="hero-tag" style="background: rgba(0, 242, 254, 0.15); border-color: rgba(0, 242, 254, 0.4); color: var(--color-secondary);">STEM EDUCATION</span>
+            <h2 class="gradient-text-teal">Junior Drone Pilot Program (Grades 5th-10th)</h2>
+            <p>Spark young minds with aerodynamics! We teach the science of flight, component engineering, simulator maneuvers, and safety protocols in a fun, interactive curriculum.</p>
+        </div>
+
+        <div class="junior-grid">
+            <div class="junior-card glass-card">
+                <h4><i class="fa-solid fa-wind"></i> 1. The Science of Flight</h4>
+                <p>Learn how planes and drones stay in the air using physics: </p>
+                <ul class="junior-steps">
+                    <li><strong>Lift:</strong> Created by fast spinning propellers pushing air downwards.</li>
+                    <li><strong>Weight (Gravity):</strong> The downward pull of Earth that lift must overcome.</li>
+                    <li><strong>Thrust:</strong> The forward force propelling the drone through space.</li>
+                    <li><strong>Drag:</strong> Air resistance slowing the drone down.</li>
+                </ul>
+            </div>
+
+            <div class="junior-card glass-card">
+                <h4><i class="fa-solid fa-gamepad"></i> 2. Flight Controls Explained</h4>
+                <p>Drones are steered using four fundamental joystick controls:</p>
+                <ul class="junior-steps">
+                    <li><strong>Throttle:</strong> Controls altitude (moving the drone UP or DOWN).</li>
+                    <li><strong>Yaw:</strong> Controls direction (spinning the drone LEFT or RIGHT).</li>
+                    <li><strong>Pitch:</strong> Controls tilt (tilting the drone FORWARD or BACKWARD).</li>
+                    <li><strong>Roll:</strong> Controls lean (sliding the drone LEFT or RIGHT side-to-side).</li>
+                </ul>
+            </div>
+
+            <div class="junior-card glass-card">
+                <h4><i class="fa-solid fa-clipboard-check"></i> 3. Pre-Flight Safety Checklist</h4>
+                <p>Every professional pilot runs checks before powering on the motors:</p>
+                <ul class="junior-steps">
+                    <li>Inspect the drone frame for structural cracks.</li>
+                    <li>Verify propellers are tightened securely and oriented correctly.</li>
+                    <li>Check battery levels of both the drone and radio controller.</li>
+                    <li>Inspect flight zone to ensure it's clear of crowds, buildings, and tall power lines.</li>
+                </ul>
+            </div>
+
+            <div class="junior-card glass-card" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h4>Ready to Practice Flying?</h4>
+                <p style="margin-bottom: 25px;">Create a free student profile to unlock our interactive, browser-based flight controller simulator mockup!</p>
+                <a href="login.html" class="btn-primary" style="box-shadow: var(--glow-shadow-secondary); background: linear-gradient(135deg, var(--color-secondary) 0%, #00b0ff 100%);"><i class="fa-solid fa-user-plus"></i> Join Student Portal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-drone"></i>
+                    <span>AeroAcademy</span>
+                </a>
+                <p>Aero Drone Academy is India's leading flight training institute, offering modern simulators, fields, and certified master instructors.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> DGCA Flight Training</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Agriculture Survey</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Drone Building Lab</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> FPV Racing Course</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> School STEM (5th-10th)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Our Academy</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Media Gallery</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive the latest updates about course batches and drone flight workshops.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter email" style="padding: 10px 15px;" required>
+                    <button class="btn-primary" style="padding: 10px 18px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aero Drone Academy. All Rights Reserved. Designed under flight safety protocols.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Check for course query param to scroll/pre-fill
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('course');
+            if (query) {
+                const element = document.getElementById("coursesDisplayGrid");
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            // Hydrate courses from the database dynamically if server available
+            fetch(`${API_BASE}/api/courses`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const coursesGrid = document.getElementById("coursesDisplayGrid");
+                        coursesGrid.innerHTML = data.map(item => `
+                            <div class="course-card glass-card">
+                                <div class="course-image-container">
+                                    <img src="${item.image || 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=400&q=80'}" alt="${item.name}">
+                                    <span class="course-badge">${item.level}</span>
+                                </div>
+                                <div class="course-body">
+                                    <h3>${item.name}</h3>
+                                    <p>${item.description}</p>
+                                    <div class="course-meta">
+                                        <span><i class="fa-regular fa-clock"></i> ${item.duration}</span>
+                                        <span><i class="fa-solid fa-signal"></i> ${item.level}</span>
+                                    </div>
+                                    <div class="course-action">
+                                        <a href="enroll.html?course=${encodeURIComponent(item.name)}">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+                })
+                .catch(err => console.log("Using local hardcoded courses list fallback."));
+        });
+    </script>
+</body>
+</html>
+
+

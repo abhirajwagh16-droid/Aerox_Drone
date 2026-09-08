@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: var(--bg-primary);">
+
+    <!-- Header Navigation -->
+    <header class="sticky" style="background: #020813;">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Logged in state is generated dynamically by script.js -->
+                <button id="logoutBtn" class="btn-primary" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fa-solid fa-user-graduate" style="font-size: 48px; color: var(--color-primary); margin-bottom: 10px;"></i>
+                <h4 id="studentWelcomeName" style="color: #fff; font-size: 18px;">Student Pilot</h4>
+                <p style="color: var(--color-text-muted); font-size: 12px;">Level: Junior Trainee</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#simulator" class="sidebar-link active"><i class="fa-solid fa-gamepad"></i> Flight Simulator</a></li>
+                <li><a href="#study-hub" class="sidebar-link"><i class="fa-solid fa-graduation-cap"></i> Interactive Lessons</a></li>
+                <li><a href="#hardware-explorer" class="sidebar-link"><i class="fa-solid fa-microchip"></i> Hardware Explorer</a></li>
+                <li><a href="#quiz-hub" class="sidebar-link"><i class="fa-solid fa-brain"></i> Knowledge Quiz</a></li>
+                <li><a href="#checklist" class="sidebar-link"><i class="fa-solid fa-clipboard-check"></i> Safety Checklist</a></li>
+                <li><a href="#study" class="sidebar-link"><i class="fa-solid fa-book-open"></i> PDF Resources</a></li>
+                <li><a href="#live" class="sidebar-link"><i class="fa-solid fa-video"></i> Live Classes</a></li>
+                <li><a href="#enrollments" class="sidebar-link"><i class="fa-solid fa-award"></i> My Enrollments</a></li>
+                <li><a href="#certificate" class="sidebar-link"><i class="fa-solid fa-certificate"></i> Certificate</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-content">
+            <!-- SIMULATOR MODULE -->
+            <section id="simulator" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Interactive Drone Flight Simulator</h2>
+                    <p style="color: var(--color-secondary); font-size: 14px; font-weight: 500;"><i class="fa-solid fa-keyboard"></i> Use Keyboard W/S/A/D + Arrow Keys</p>
+                </div>
+
+                <div class="simulator-panel">
+                    <!-- Sky Visualizer Box -->
+                    <div class="sim-visualizer">
+                        <div class="sky-view">
+                            <!-- Drone Image representation -->
+                            <div class="sim-drone" id="simDrone">
+                                <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=150&q=80" alt="Training Drone" style="width: 60px; height: auto;">
+                            </div>
+                            
+                            <!-- Telemetry Data HUD -->
+                            <div class="telemetry-overlay">
+                                <div>ALTITUDE: <span id="telemetryAltitude">0m</span></div>
+                                <div>AIRSPEED: <span id="telemetrySpeed">0 km/h</span></div>
+                                <div>HEADING: <span id="telemetryDirection">0°</span></div>
+                                <div id="telemetryPitchRoll">P: 0° | R: 0°</div>
+                            </div>
+                        </div>
+
+                        <!-- Joysticks Representation -->
+                        <div class="controller-sticks">
+                            <div>
+                                <div class="joystick-base">
+                                    <div class="joystick-stick" id="joystickLeftStick"></div>
+                                </div>
+                                <div class="joystick-label">Throttle & Yaw (W/S/A/D)</div>
+                            </div>
+                            <div>
+                                <div class="joystick-base">
+                                    <div class="joystick-stick" id="joystickRightStick"></div>
+                                </div>
+                                <div class="joystick-label">Pitch & Roll (Arrows)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flight Guide Card -->
+                    <div class="flight-manual-card glass-card">
+                        <h3>Virtual Flight Manual</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 20px;">Master the controls using your keyboard inputs. Practice taking off, hovering, and leaning to control the movement.</p>
+                        
+                        <div class="sim-controls-grid">
+                            <div style="font-size: 14px;">
+                                <p><span class="key-cap">W</span> Throttle Up (Climb altitude)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">S</span> Throttle Down (Descend altitude)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">A</span> Yaw Left (Spin counter-clockwise)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">D</span> Yaw Right (Spin clockwise)</p>
+                            </div>
+                            <div style="font-size: 14px;">
+                                <p><span class="key-cap">↑</span> Pitch Forward (Tilt drone forward)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">↓</span> Pitch Backward (Tilt drone backward)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">←</span> Roll Left (Slide drone leftwards)</p>
+                                <p style="margin-top: 8px;"><span class="key-cap">→</span> Roll Right (Slide drone rightwards)</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px; border-top: 1px solid var(--border-glass); padding-top: 20px;">
+                            <p style="font-size: 14px; color: var(--color-primary);"><i class="fa-solid fa-triangle-exclamation"></i> <strong>STEM Flight Physics Rule:</strong> Propellers spin rapidly. Changing left propeller speeds relative to right propellers tilts the frame, translating vertical lift into forward propulsion (Pitch/Roll) or rotational momentum (Yaw).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTERACTIVE STUDY LESSONS HUB -->
+            <section id="study-hub" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Interactive Drone Study Hub</h2>
+                    <p style="color: var(--color-secondary); font-size: 14px; font-weight: 500;"><i class="fa-solid fa-graduation-cap"></i> Select a subject below to dive into interactive drone modules</p>
+                </div>
+
+                <div class="glass-card" style="padding: 25px;">
+                    <!-- Subject Nav Tabs -->
+                    <div class="study-tabs" style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 15px; border-bottom: 1px solid var(--border-glass); margin-bottom: 25px;">
+                        <button class="study-tab-btn active" onclick="selectStudyTab('aero')" id="tabAero" style="padding: 10px 20px; border-radius: 20px; border: 1px solid var(--color-primary); background: rgba(255, 159, 10, 0.15); color: var(--color-primary); font-weight: 600; cursor: pointer; white-space: nowrap;">
+                            <i class="fa-solid fa-wind"></i> 1. Aerodynamics & Physics
+                        </button>
+                        <button class="study-tab-btn" onclick="selectStudyTab('electronics')" id="tabElectronics" style="padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-muted); font-weight: 600; cursor: pointer; white-space: nowrap;">
+                            <i class="fa-solid fa-bolt"></i> 2. Electronics & ESCs
+                        </button>
+                        <button class="study-tab-btn" onclick="selectStudyTab('coding')" id="tabCoding" style="padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-muted); font-weight: 600; cursor: pointer; white-space: nowrap;">
+                            <i class="fa-solid fa-code"></i> 3. Python Drone Coding
+                        </button>
+                        <button class="study-tab-btn" onclick="selectStudyTab('rules')" id="tabRules" style="padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-muted); font-weight: 600; cursor: pointer; white-space: nowrap;">
+                            <i class="fa-solid fa-scale-balanced"></i> 4. Airspace Regulations
+                        </button>
+                        <button class="study-tab-btn" onclick="selectStudyTab('ai')" id="tabAi" style="padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-muted); font-weight: 600; cursor: pointer; white-space: nowrap;">
+                            <i class="fa-solid fa-robot"></i> 5. Edge AI & Thermal
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Lesson Body -->
+                    <div id="lessonContentCard" style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Default: Aerodynamics Content -->
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                            <div>
+                                <span class="hero-tag" style="font-size: 11px; padding: 3px 10px; margin-bottom: 8px;">MODULE 1</span>
+                                <h3 style="font-size: 22px; color: var(--color-primary);"><i class="fa-solid fa-wind"></i> Fundamentals of Quadcopter Aerodynamics</h3>
+                            </div>
+                            <span style="font-size: 12px; background: rgba(0,242,254,0.1); color: var(--color-secondary); padding: 5px 12px; border-radius: 12px; border: 1px solid rgba(0,242,254,0.3);"><i class="fa-regular fa-clock"></i> 15 Mins Read</span>
+                        </div>
+
+                        <p style="color: var(--color-text-main); font-size: 15px; line-height: 1.7;">
+                            A quadcopter utilizes four fixed-pitch propellers driven by brushless DC motors. Unlike airplanes that rely on forward speed to create wing lift, drones vary the speed of individual motors to manipulate aerodynamic forces in 3-dimensional space.
+                        </p>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 10px 0;">
+                            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 18px;">
+                                <h4 style="color: var(--color-secondary); font-size: 16px; margin-bottom: 8px;"><i class="fa-solid fa-arrow-up"></i> Thrust-to-Weight Ratio</h4>
+                                <p style="font-size: 13px; color: var(--color-text-muted);">To hover, total motor thrust must equal drone weight (1:1). For agile flight, a minimum ratio of <strong>2:1</strong> is required, while racing FPV drones use <strong>10:1+</strong>.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 12px; padding: 18px;">
+                                <h4 style="color: var(--color-primary); font-size: 16px; margin-bottom: 8px;"><i class="fa-solid fa-rotate-right"></i> Torque Cancellation (Yaw)</h4>
+                                <p style="font-size: 13px; color: var(--color-text-muted);">Diagonally opposite motors spin in opposite directions (CW and CCW). Accelerating CW motors relative to CCW motors creates net rotational torque without changing altitude.</p>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(0, 242, 254, 0.05); border-left: 4px solid var(--color-secondary); padding: 15px 20px; border-radius: 0 12px 12px 0;">
+                            <strong style="color: var(--color-secondary); font-size: 14px;"><i class="fa-solid fa-square-root-variable"></i> Key Formula: Lift Force</strong>
+                            <p style="font-size: 13px; color: var(--color-text-main); margin-top: 5px;">Lift ($L$) = $\frac{1}{2} \cdot \rho \cdot v^2 \cdot S \cdot C_L$ where $\rho$ is air density, $v$ is blade tip velocity, $S$ is propeller surface area, and $C_L$ is lift coefficient.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTERACTIVE HARDWARE COMPONENT EXPLORER -->
+            <section id="hardware-explorer" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Interactive Hardware Component Explorer</h2>
+                    <p style="color: var(--color-primary); font-size: 14px; font-weight: 500;"><i class="fa-solid fa-microchip"></i> Click on any drone hardware component below to inspect technical specs and wiring pinouts</p>
+                </div>
+
+                <div class="glass-card" style="padding: 30px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; align-items: flex-start;">
+                        <!-- Component Nodes Grid -->
+                        <div>
+                            <h4 style="color: var(--color-text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Select Hardware Component:</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <button class="hw-node-btn active" onclick="inspectComponent('fc')" id="hwBtnFc" style="display: flex; align-items: center; gap: 15px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--color-primary); background: rgba(255,159,10,0.15); color: #fff; text-align: left; cursor: pointer; transition: all 0.3s ease;">
+                                    <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(255,159,10,0.2); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 18px;"><i class="fa-solid fa-microchip"></i></div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 15px;">Flight Controller (FC)</div>
+                                        <div style="font-size: 12px; color: var(--color-text-muted);">STM32 F4/F7/H7 MCU Brain</div>
+                                    </div>
+                                </button>
+
+                                <button class="hw-node-btn" onclick="inspectComponent('esc')" id="hwBtnEsc" style="display: flex; align-items: center; gap: 15px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer; transition: all 0.3s ease;">
+                                    <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,242,254,0.15); display: flex; align-items: center; justify-content: center; color: var(--color-secondary); font-size: 18px;"><i class="fa-solid fa-bolt"></i></div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 15px;">4-in-1 ESC</div>
+                                        <div style="font-size: 12px; color: var(--color-text-muted);">Electronic Speed Controller</div>
+                                    </div>
+                                </button>
+
+                                <button class="hw-node-btn" onclick="inspectComponent('motor')" id="hwBtnMotor" style="display: flex; align-items: center; gap: 15px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer; transition: all 0.3s ease;">
+                                    <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; color: #10b981; font-size: 18px;"><i class="fa-solid fa-fan"></i></div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 15px;">Brushless Motors</div>
+                                        <div style="font-size: 12px; color: var(--color-text-muted);">2207 / 2306 KV Ratings</div>
+                                    </div>
+                                </button>
+
+                                <button class="hw-node-btn" onclick="inspectComponent('battery')" id="hwBtnBattery" style="display: flex; align-items: center; gap: 15px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer; transition: all 0.3s ease;">
+                                    <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(239,68,68,0.15); display: flex; align-items: center; justify-content: center; color: #ef4444; font-size: 18px;"><i class="fa-solid fa-battery-full"></i></div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 15px;">LiPo Battery (4S / 6S)</div>
+                                        <div style="font-size: 12px; color: var(--color-text-muted);">Lithium Polymer Power</div>
+                                    </div>
+                                </button>
+
+                                <button class="hw-node-btn" onclick="inspectComponent('rx')" id="hwBtnRx" style="display: flex; align-items: center; gap: 15px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer; transition: all 0.3s ease;">
+                                    <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(168,85,247,0.15); display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 18px;"><i class="fa-solid fa-tower-cell"></i></div>
+                                    <div>
+                                        <div style="font-weight: 600; font-size: 15px;">Radio Receiver (ELRS/TBS)</div>
+                                        <div style="font-size: 12px; color: var(--color-text-muted);">Long-Range Telemetry Link</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Live Component Inspector Pane -->
+                        <div id="hwInspectorCard" style="background: rgba(0,0,0,0.25); border: 1px solid var(--border-glass); border-radius: 16px; padding: 25px;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;">
+                                <div id="hwInspectIcon" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,159,10,0.2); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <h3 id="hwInspectTitle" style="font-size: 20px; color: #fff;">Flight Controller (FC)</h3>
+                                    <p id="hwInspectSub" style="font-size: 13px; color: var(--color-secondary);">Central Autopilot Computer</p>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div>
+                                    <h5 style="font-size: 12px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Primary Function:</h5>
+                                    <p id="hwInspectRole" style="font-size: 14px; color: var(--color-text-main);">Processes IMU gyro/accelerometer data 8000 times per second, executes PID stabilization loops, and calculates motor commands.</p>
+                                </div>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid var(--border-glass);">
+                                        <div style="font-size: 11px; color: var(--color-text-muted);">MCU Processor</div>
+                                        <strong id="hwInspectSpec1" style="font-size: 13px; color: var(--color-primary);">STM32 H743 (480 MHz)</strong>
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid var(--border-glass);">
+                                        <div style="font-size: 11px; color: var(--color-text-muted);">Gyro / IMU Sensor</div>
+                                        <strong id="hwInspectSpec2" style="font-size: 13px; color: var(--color-secondary);">BMI270 / MPU6000</strong>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5 style="font-size: 12px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Protocol & Pinout:</h5>
+                                    <p id="hwInspectPinout" style="font-size: 13px; color: #cbd5e1; font-family: monospace; background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 6px;">UART 1 (Rx/Tx) | DShot600 | MAVLink Telemetry</p>
+                                </div>
+
+                                <div style="border-top: 1px dashed var(--border-glass); padding-top: 12px; margin-top: 5px;">
+                                    <p id="hwInspectTip" style="font-size: 12px; color: var(--color-primary);"><i class="fa-solid fa-lightbulb"></i> <strong>Pro Tip:</strong> Always mount FC on rubber anti-vibration grommets to prevent motor noise from reaching the gyro sensor.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTERACTIVE DRONE KNOWLEDGE QUIZ HUB -->
+            <section id="quiz-hub" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Interactive Drone Knowledge Quiz</h2>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span id="quizScoreBadge" style="background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 13px;">Score: 0 / 5</span>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="padding: 30px;">
+                    <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 25px;">Test your understanding of drone aerodynamics, components, and safety regulations. Answer all 5 questions to unlock your **Drone Theory Master** badge!</p>
+
+                    <div id="quizContainer" style="display: flex; flex-direction: column; gap: 25px;">
+                        <!-- Q1 -->
+                        <div class="quiz-item-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
+                            <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-text-main);">1. Which component converts DC battery power into 3-phase AC signals to control motor RPM?</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;" id="q1Options">
+                                <button onclick="answerQuiz(1, 'A', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">A) Radio Receiver (Rx)</button>
+                                <button onclick="answerQuiz(1, 'B', true, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">B) Electronic Speed Controller (ESC)</button>
+                                <button onclick="answerQuiz(1, 'C', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">C) Inertial Measurement Unit (IMU)</button>
+                                <button onclick="answerQuiz(1, 'D', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">D) Barometer Sensor</button>
+                            </div>
+                            <div id="q1Feedback" style="font-size: 13px; margin-top: 10px; display: none;"></div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="quiz-item-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
+                            <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-text-main);">2. What joystick command causes the quadcopter to rotate clockwise or counter-clockwise?</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;" id="q2Options">
+                                <button onclick="answerQuiz(2, 'A', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">A) Pitch</button>
+                                <button onclick="answerQuiz(2, 'B', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">B) Roll</button>
+                                <button onclick="answerQuiz(2, 'C', true, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">C) Yaw</button>
+                                <button onclick="answerQuiz(2, 'D', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">D) Throttle</button>
+                            </div>
+                            <div id="q2Feedback" style="font-size: 13px; margin-top: 10px; display: none;"></div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="quiz-item-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
+                            <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-text-main);">3. What Python library is commonly used for edge AI drone object detection & camera stream processing?</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;" id="q3Options">
+                                <button onclick="answerQuiz(3, 'A', true, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">A) OpenCV & Ultralytics YOLO</button>
+                                <button onclick="answerQuiz(3, 'B', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">B) Pandas & Matplotlib</button>
+                                <button onclick="answerQuiz(3, 'C', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">C) Flask & Express.js</button>
+                                <button onclick="answerQuiz(3, 'D', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">D) SQLite3</button>
+                            </div>
+                            <div id="q3Feedback" style="font-size: 13px; margin-top: 10px; display: none;"></div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="quiz-item-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
+                            <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-text-main);">4. What is the minimum recommended thrust-to-weight ratio for a safe and maneuverable quadcopter?</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;" id="q4Options">
+                                <button onclick="answerQuiz(4, 'A', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">A) 0.5 : 1</button>
+                                <button onclick="answerQuiz(4, 'B', true, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">B) 2 : 1</button>
+                                <button onclick="answerQuiz(4, 'C', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">C) 50 : 1</button>
+                                <button onclick="answerQuiz(4, 'D', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">D) 1 : 2</button>
+                            </div>
+                            <div id="q4Feedback" style="font-size: 13px; margin-top: 10px; display: none;"></div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="quiz-item-card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 20px;">
+                            <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-text-main);">5. Under DGCA Digital Sky airspace classification, which zone allows permissionless flights up to 400ft?</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;" id="q5Options">
+                                <button onclick="answerQuiz(5, 'A', true, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">A) Green Zone</button>
+                                <button onclick="answerQuiz(5, 'B', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">B) Yellow Zone</button>
+                                <button onclick="answerQuiz(5, 'C', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">C) Red Zone</button>
+                                <button onclick="answerQuiz(5, 'D', false, this)" class="quiz-opt-btn" style="padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border-glass); background: transparent; color: var(--color-text-main); text-align: left; cursor: pointer;">D) Black Zone</button>
+                            </div>
+                            <div id="q5Feedback" style="font-size: 13px; margin-top: 10px; display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div id="quizCompletionBanner" style="display: none; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(0,242,254,0.15) 100%); border: 1px solid #10b981; border-radius: 12px; text-align: center;">
+                        <i class="fa-solid fa-award" style="font-size: 40px; color: #10b981; margin-bottom: 10px;"></i>
+                        <h3 style="color: #fff; font-size: 20px;">Congratulations! Quiz Passed!</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 15px;">You scored 80%+ on the Drone Theory Knowledge Check.</p>
+                        <span style="display: inline-block; padding: 8px 20px; background: #10b981; color: #000; border-radius: 20px; font-weight: bold; font-size: 14px;"><i class="fa-solid fa-circle-check"></i> Badge Unlocked: Certified Drone Scholar</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STUDY MATERIALS MODULE -->
+            <section id="study" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Study Materials & Resources</h2>
+                    <p style="color: var(--color-secondary); font-size: 14px; font-weight: 500;"><i class="fa-solid fa-book"></i> Access Drone Theory & Manuals</p>
+                </div>
+
+                <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 0; padding-top: 20px;">
+                    <!-- Resource 1 -->
+                    <div class="glass-card" style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="font-size: 30px; color: var(--color-primary);"><i class="fa-solid fa-file-pdf"></i></div>
+                        <h3 style="font-size: 18px;">Drone Technology Guide</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; flex-grow: 1;">A Beginner-to-Intermediate Guide covering flight principles, hardware, and regulations.</p>
+                        <a href="pdfs/Drone_Technology.pdf" target="_blank" class="btn-secondary" style="width: 100%; padding: 8px; font-size: 14px; text-align: center; text-decoration: none; display: inline-block; box-sizing: border-box;"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                    </div>
+                    
+                    <!-- Resource 2 -->
+                    <div class="glass-card" style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="font-size: 30px; color: var(--color-primary);"><i class="fa-solid fa-file-pdf"></i></div>
+                        <h3 style="font-size: 18px;">Drone Aerodynamics Basics</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; flex-grow: 1;">Understand the physics of flight, lift, thrust, drag, and weight.</p>
+                        <a href="pdfs/Drone_Aerodynamics_Basics.pdf" target="_blank" class="btn-secondary" style="width: 100%; padding: 8px; font-size: 14px; text-align: center; text-decoration: none; display: inline-block; box-sizing: border-box;"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+                    </div>
+                    
+                    <!-- Resource 2 (Video) -->
+                    <div class="glass-card" style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="font-size: 30px; color: var(--color-secondary);"><i class="fa-solid fa-file-video"></i></div>
+                        <h3 style="font-size: 18px;">FAA Regulation Guide</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; flex-grow: 1;">Video module covering global and local drone flight regulations and airspace limits.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLwoDb7WF6c8lCKhQOTy-Vb9LfW0VAIrTP" target="_blank" class="btn-secondary" style="width: 100%; padding: 8px; font-size: 14px; text-align: center; text-decoration: none; display: inline-block; box-sizing: border-box;"><i class="fa-solid fa-play"></i> Watch Video</a>
+                    </div>
+
+                    <!-- Resource 3 -->
+                    <div class="glass-card" style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="font-size: 30px; color: #10b981;"><i class="fa-solid fa-road"></i></div>
+                        <h3 style="font-size: 18px;">Beginner Path to Piloting</h3>
+                        <p style="color: var(--color-text-muted); font-size: 14px; flex-grow: 1;">A beginner-friendly path to learn drone piloting, with a module breakdown.</p>
+                        <button class="btn-secondary" style="width: 100%; padding: 8px; font-size: 14px;" onclick="document.getElementById('pathModule').style.display = document.getElementById('pathModule').style.display === 'block' ? 'none' : 'block'"><i class="fa-solid fa-book-open"></i> Read Module</button>
+                    </div>
+                </div>
+
+                <div id="pathModule" class="glass-card" style="display: none; padding: 25px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 15px; color: var(--color-primary);">Beginner-friendly path to learn drone piloting</h3>
+                    <ol style="color: var(--color-text-muted); font-size: 15px; padding-left: 20px; display: grid; gap: 15px;">
+                        <li><strong>Learn the basics & safety rules:</strong> Understand drone parts (motors, propellers, battery, controller), how a quadcopter stays stable, and local flying rules (no-fly zones, altitude limits, registration if required in your country).</li>
+                        <li><strong>Get comfortable with a cheap practice drone:</strong> Buy a small, durable indoor/toy drone (₹1500-4000 range) to practice takeoff, landing, and hovering without risking an expensive one.</li>
+                        <li><strong>Master basic controls:</strong> Practice throttle, yaw, pitch, and roll separately. Get comfortable hovering in one spot before trying any movement.</li>
+                        <li><strong>Practice simple maneuvers:</strong> Fly in straight lines, squares, and slow circles. Work on smooth takeoffs and landings every time.</li>
+                        <li><strong>Learn orientation flying:</strong> Practice flying the drone toward you (nose-in) — this reverses your controls and is the hardest beginner skill. Go slow.</li>
+                        <li><strong>Try simulator practice (optional but recommended):</strong> Use a free/cheap flight simulator (like Liftoff or DRL Simulator) to build muscle memory without crash risk, especially useful before FPV.</li>
+                        <li><strong>Move to your real/better drone:</strong> Once confident, fly your actual drone (DJI Mini series or similar) in an open field, practicing camera control and simple cinematic shots.</li>
+                        <li><strong>Learn local laws & certification if needed:</strong> If you want to fly commercially, look into your country's drone pilot certification (e.g. DGCA in India, Part 107 in the US).</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- LIVE CLASSES MODULE -->
+            <section id="live" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Live Instructor Sessions</h2>
+                    <p style="color: var(--color-primary); font-size: 14px; font-weight: 500;"><i class="fa-solid fa-broadcast-tower"></i> Join Scheduled Live Webinars</p>
+                </div>
+
+                <div class="glass-card" style="padding: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 20px; margin-bottom: 20px; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <div style="display: inline-block; padding: 4px 10px; background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 8px; position: relative; top: -1px;"></i> LIVE NOW
+                            </div>
+                            <h3 style="font-size: 20px; margin-bottom: 5px;">Drone Assembly Workshop</h3>
+                            <p style="color: var(--color-text-muted); font-size: 14px;"><i class="fa-regular fa-clock"></i> Started 15 mins ago | Instructor: Capt. Vikram</p>
+                        </div>
+                        <button class="btn-primary" style="padding: 10px 25px;"><i class="fa-solid fa-video"></i> Join Session</button>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <div style="display: inline-block; padding: 4px 10px; background: var(--bg-glass-accent); color: var(--color-text-muted); border: 1px solid var(--border-glass); border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px;">
+                                <i class="fa-regular fa-calendar"></i> UPCOMING
+                            </div>
+                            <h3 style="font-size: 20px; margin-bottom: 5px;">Q&A with Master Instructor</h3>
+                            <p style="color: var(--color-text-muted); font-size: 14px;"><i class="fa-regular fa-clock"></i> Tomorrow, 10:00 AM (IST) | Instructor: Capt. Vikram</p>
+                        </div>
+                        <button class="btn-secondary" style="padding: 10px 25px;"><i class="fa-solid fa-bell"></i> Remind Me</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENROLLMENTS LIST MODULE -->
+            <section id="enrollments" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>My Program Enrollments</h2>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Training Location</th>
+                                <th>Applied Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentEnrollmentsList">
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 20px; color: var(--color-text-muted);">Loading enrollments...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SAFETY CHECKLIST MODULE -->
+            <section id="checklist" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Pre-Flight Safety Checklist</h2>
+                    <span id="checklistProgress" style="color: var(--color-primary); font-weight: 600; font-size: 16px;">0% Completed</span>
+                </div>
+
+                <div class="glass-card" style="padding: 35px;">
+                    <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 25px;">Every student pilot must complete a full checklist audit before receiving certification. Mark each step as you execute it:</p>
+                    
+                    <!-- Progress Bar -->
+                    <div style="width: 100%; height: 6px; background: var(--border-glass); border-radius: 3px; margin-bottom: 30px; overflow: hidden;">
+                        <div id="checklistProgressBarInner" style="width: 0%; height: 100%; background: var(--color-primary); transition: width 0.3s ease;"></div>
+                    </div>
+
+                    <div style="display: grid; gap: 15px;">
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>Frame Check: Frame holds no structural cracks or loose hardware.</span>
+                        </label>
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>Propeller Check: Propellers are properly locked down and hold no structural chips.</span>
+                        </label>
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>Power Check: Drone flight battery and Radio controller are charged above 80%.</span>
+                        </label>
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>Radio Range Check: Antennas are extended and connection link signal is verified active.</span>
+                        </label>
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>Field Clearance: Flight zone is fully clear of power-lines, tall buildings, and crowds.</span>
+                        </label>
+                        <label class="checklist-item" style="display: flex; align-items: center; gap: 15px; cursor: pointer;">
+                            <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary);">
+                            <span>No-Fly Zone Check: Checked Digital Sky maps to verify flight field does not overlap with airports.</span>
+                        </label>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button id="btnRequestCert" class="btn-primary" style="padding: 12px 35px;" disabled><i class="fa-solid fa-award"></i> Generate Flight Certificate</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CERTIFICATE DISPLAY BOX -->
+            <section id="certificate" style="padding: 0; margin-bottom: 60px;">
+                <div class="dashboard-header">
+                    <h2>Generated Pilot Credentials</h2>
+                </div>
+
+                <!-- Hidden by default, toggled when pre-flight checklist reaches 100% and user clicks generate -->
+                <div id="studentCertificateBox" class="certificate-preview-box" style="display: none;">
+                    <div class="certificate-border">
+                        <div class="certificate-title">Certificate of Completion</div>
+                        <div class="cert-sub">AERO DRONE FLIGHT ACADEMY</div>
+                        
+                        <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 20px;">This credentials card verifies that student pilot</p>
+                        <div class="cert-name" id="certStudentName">STUDENT NAME</div>
+                        
+                        <p class="cert-text">has successfully completed the basic pre-flight checklist, STEM aerodynamics safety parameters, and verified simulator logs of micro multirotor flight controls.</p>
+                        
+                        <div class="cert-footer">
+                            <div>
+                                <span>DATE ISSUED</span>
+                                <div class="cert-sig" id="certIssueDate">June 30, 2026</div>
+                            </div>
+                            <div>
+                                <span>FLIGHT REGISTRAR</span>
+                                <div class="cert-sig" style="font-family: 'Space Grotesk', sans-serif; font-weight: bold; font-style: italic;">AeroAcademy</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="window.print()" class="btn-primary" style="margin-top: 30px;"><i class="fa-solid fa-print"></i> Print Certificate</button>
+                </div>
+
+                <p id="certInstructions" style="color: var(--color-text-muted); font-size: 14px; text-align: center; padding: 20px;" class="glass-card">
+                    <i class="fa-solid fa-circle-info" style="color: var(--color-primary); margin-right: 10px;"></i>
+                    Complete 100% of the <strong>Pre-Flight Safety Checklist</strong> to unlock and generate your pilot credentials certificate.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Interactive Payment Gateway Modal -->
+    <div id="paymentGatewayModal" class="payment-modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+        <div class="payment-modal-card" style="background: #0f172a; border: 1px solid #334155; border-radius: 16px; width: 100%; max-width: 520px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 242, 254, 0.15);">
+            <!-- Modal Header -->
+            <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 20px 25px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.3); display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-size: 20px;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; color: #fff; font-size: 18px; font-weight: 600;">Aero Academy Secure Checkout</h3>
+                        <p style="margin: 3px 0 0 0; color: #94a3b8; font-size: 12px;">256-bit Encrypted Payment Gateway</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closePaymentModal()" style="background: none; border: none; color: #94a3b8; font-size: 22px; cursor: pointer; padding: 4px 8px; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- Course & Fee Info Bar -->
+            <div style="background: rgba(0, 242, 254, 0.05); padding: 15px 25px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Course Fee</span>
+                    <h4 id="payModalCourseTitle" style="margin: 2px 0 0 0; color: #f8fafc; font-size: 15px;">Drone Training Program</h4>
+                </div>
+                <div style="text-align: right;">
+                    <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Amount Payable</span>
+                    <div id="payModalAmount" style="font-size: 22px; font-weight: 700; color: #00f2fe;">₹5,000</div>
+                </div>
+            </div>
+
+            <!-- Payment Method Tabs -->
+            <div style="display: flex; background: #1e293b; border-bottom: 1px solid #334155; padding: 0 10px;">
+                <button type="button" class="pay-tab-btn active" onclick="switchPayTab('upi')" id="tabBtnUpi" style="flex: 1; padding: 12px; background: none; border: none; border-bottom: 2px solid #00f2fe; color: #00f2fe; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i class="fa-solid fa-qrcode"></i> UPI / QR
+                </button>
+                <button type="button" class="pay-tab-btn" onclick="switchPayTab('card')" id="tabBtnCard" style="flex: 1; padding: 12px; background: none; border: none; border-bottom: 2px solid transparent; color: #94a3b8; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i class="fa-solid fa-credit-card"></i> Card
+                </button>
+                <button type="button" class="pay-tab-btn" onclick="switchPayTab('netbank')" id="tabBtnNetbank" style="flex: 1; padding: 12px; background: none; border: none; border-bottom: 2px solid transparent; color: #94a3b8; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i class="fa-solid fa-building-columns"></i> Net Banking
+                </button>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div style="padding: 25px;">
+                <!-- TAB 1: UPI & QR CODE -->
+                <div id="payTabUpi" class="pay-tab-content">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <p style="color: #94a3b8; font-size: 13px; margin: 0 0 15px 0;">Scan QR code with GPay, PhonePe, Paytm or BHIM UPI app</p>
+                        <div style="display: inline-block; padding: 15px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=aeroxdrone@upi&pn=AeroDroneAcademy&am=5000&cu=INR" alt="UPI Payment QR Code" style="width: 150px; height: 150px; display: block;" id="upiQrCodeImg">
+                        </div>
+                        <div style="margin-top: 12px; font-size: 13px; color: #cbd5e1;">
+                            UPI ID: <strong style="color: #00f2fe; background: rgba(0,242,254,0.1); padding: 3px 8px; border-radius: 4px;">aeroxdrone@upi</strong>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 500;">Or enter your Virtual Payment Address (VPA / UPI ID)</label>
+                        <div style="position: relative;">
+                            <input type="text" id="inputUpiId" placeholder="username@upi / mobile@ybl" value="student@okaxis" style="width: 100%; padding: 10px 12px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: CREDIT / DEBIT CARD -->
+                <div id="payTabCard" class="pay-tab-content" style="display: none;">
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 500;">Cardholder Name</label>
+                            <input type="text" id="cardName" placeholder="Name on Card" value="Student Pilot" style="width: 100%; padding: 10px 12px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 500;">Card Number</label>
+                            <div style="position: relative;">
+                                <input type="text" id="cardNumber" maxlength="19" placeholder="4111 2222 3333 4444" value="4532 8910 1112 1314" style="width: 100%; padding: 10px 12px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box;">
+                                <span style="position: absolute; right: 12px; top: 10px; color: #94a3b8;"><i class="fa-brands fa-cc-visa" style="font-size: 20px;"></i></span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 500;">Expiry Date</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" value="12/28" maxlength="5" style="width: 100%; padding: 10px 12px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box;">
+                            </div>
+                            <div style="flex: 1;">
+                                <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 500;">CVV Code</label>
+                                <input type="password" id="cardCvv" placeholder="123" value="888" maxlength="4" style="width: 100%; padding: 10px 12px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: NET BANKING -->
+                <div id="payTabNetbank" class="pay-tab-content" style="display: none;">
+                    <label style="display: block; font-size: 12px; color: #94a3b8; margin-bottom: 12px; font-weight: 500;">Select Bank</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                        <label style="padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #fff;">
+                            <input type="radio" name="bank" value="HDFC" checked style="accent-color: #00f2fe;"> HDFC Bank
+                        </label>
+                        <label style="padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #fff;">
+                            <input type="radio" name="bank" value="SBI" style="accent-color: #00f2fe;"> State Bank of India
+                        </label>
+                        <label style="padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #fff;">
+                            <input type="radio" name="bank" value="ICICI" style="accent-color: #00f2fe;"> ICICI Bank
+                        </label>
+                        <label style="padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #fff;">
+                            <input type="radio" name="bank" value="AXIS" style="accent-color: #00f2fe;"> Axis Bank
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pay Submit Action -->
+                <div style="margin-top: 25px; border-top: 1px solid #334155; padding-top: 20px;">
+                    <button type="button" id="btnSubmitPayment" onclick="processMockPaymentSubmit()" class="btn-primary" style="width: 100%; padding: 14px; font-size: 16px; font-weight: 600; border-radius: 10px; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #000; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <i class="fa-solid fa-lock"></i> <span id="btnSubmitPayText">Complete & Send Fee (₹5,000)</span>
+                    </button>
+                    <p style="text-align: center; color: #64748b; font-size: 11px; margin: 12px 0 0 0;"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Instant enrollment confirmation upon payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Simple Sidebar scroll-spy/active highlighting
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Training Gallery - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-user"></i> Login / Register</a>
+                <a href="enroll.html" class="btn-primary btn-nav-enroll" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="gradient-text">Drone Academy Gallery</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>Gallery</span>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All Photos</button>
+            <button class="filter-btn" data-filter="agri">Agriculture</button>
+            <button class="filter-btn" data-filter="survey">Survey & Mapping</button>
+            <button class="filter-btn" data-filter="fpv">FPV Racing</button>
+            <button class="filter-btn" data-filter="practice">Flying Practice</button>
+            <button class="filter-btn" data-filter="workshop">Workshops</button>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="gallery-item glass-card" data-category="agri">
+                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=500&q=80" alt="Agriculture Drone Flight">
+                <div class="gallery-overlay">
+                    <h4>Precision Spraying</h4>
+                    <p>Agriculture Drone</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item glass-card" data-category="survey">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=500&q=80" alt="GIS Survey Drone">
+                <div class="gallery-overlay">
+                    <h4>Topographic Survey</h4>
+                    <p>Survey Drone</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item glass-card" data-category="fpv">
+                <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=500&q=80" alt="FPV Racing Quadcopter">
+                <div class="gallery-overlay">
+                    <h4>High Speed Acro</h4>
+                    <p>FPV Racing</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item glass-card" data-category="practice">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Student Training Field">
+                <div class="gallery-overlay">
+                    <h4>Flight Field Practice</h4>
+                    <p>Flying Practice</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item glass-card" data-category="workshop">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" alt="Drone Soldering Workshop">
+                <div class="gallery-overlay">
+                    <h4>Soldering & Assembly Lab</h4>
+                    <p>Workshops</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item glass-card" data-category="agri">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=80" alt="Agricultural Analysis">
+                <div class="gallery-overlay">
+                    <h4>NDVI Crop Diagnosis</h4>
+                    <p>Agriculture Drone</p>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-item glass-card" data-category="survey">
+                <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=500&q=80" alt="Digital Map Overlays">
+                <div class="gallery-overlay">
+                    <h4>Orthomosaic Generation</h4>
+                    <p>Survey Drone</p>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item glass-card" data-category="practice">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Dual Flight Control">
+                <div class="gallery-overlay">
+                    <h4>Simulator Room Check</h4>
+                    <p>Flying Practice</p>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-item glass-card" data-category="workshop">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="STEM Class Building">
+                <div class="gallery-overlay">
+                    <h4>Junior Flight Science</h4>
+                    <p>Workshops</p>
+                </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="gallery-item glass-card" data-category="practice">
+                <img src="https://images.unsplash.com/photo-1579820010410-c10411aaaa88?auto=format&fit=crop&w=500&q=80" alt="Practice Field">
+                <div class="gallery-overlay">
+                    <h4>Open Field Practice</h4>
+                    <p>Flying Practice</p>
+                </div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="gallery-item glass-card" data-category="workshop">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Advanced Tuning">
+                <div class="gallery-overlay">
+                    <h4>Advanced Tuning</h4>
+                    <p>Workshops</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-drone"></i>
+                    <span>AeroAcademy</span>
+                </a>
+                <p>Aero Drone Academy is India's leading flight training institute, offering modern simulators, fields, and certified master instructors.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> DGCA Flight Training</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Agriculture Survey</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Drone Building Lab</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> FPV Racing Course</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> School STEM (5th-10th)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Our Academy</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Media Gallery</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive the latest updates about course batches and drone flight workshops.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter email" style="padding: 10px 15px;" required>
+                    <button class="btn-primary" style="padding: 10px 18px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aero Drone Academy. All Rights Reserved. Designed under flight safety protocols.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Form - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-user"></i> Login / Register</a>
+                <a href="enroll.html" class="btn-primary btn-nav-enroll" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="gradient-text">Student Course Registration</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>Enrollment</span>
+        </div>
+    </section>
+
+    <!-- Enrollment Form Container -->
+    <section class="enrollment-section" style="max-width: 700px; margin: auto;">
+        <div class="form-wrapper glass-card">
+            <h2 style="font-size: 28px; margin-bottom: 10px; text-align: center; color: var(--color-primary);">Enroll In A Training Program</h2>
+            <p style="color: var(--color-text-muted); text-align: center; margin-bottom: 30px; font-size: 14px;">If you already have a student profile, please log in before applying to link this enrollment to your profile.</p>
+
+            <form id="enrollForm">
+                <div class="form-group">
+                    <label for="enrollName">Full Name</label>
+                    <input type="text" id="enrollName" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enrollEmail">Email Address</label>
+                    <input type="email" id="enrollEmail" class="form-control" placeholder="Enter email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="enrollMobile">Mobile Number</label>
+                    <input type="tel" id="enrollMobile" class="form-control" placeholder="Enter 10-digit number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="enrollCity">City</label>
+                    <input type="text" id="enrollCity" class="form-control" placeholder="Enter your current city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="enrollCourse">Select Drone Course</label>
+                    <select id="enrollCourse" class="form-control" required>
+                        <option value="" disabled selected>Choose a specialty course...</option>
+                        <option value="DGCA Drone Pilot Training">DGCA Drone Pilot Training</option>
+                        <option value="Agriculture Drone Training">Agriculture Drone Training</option>
+                        <option value="Survey & Mapping">Survey & Mapping</option>
+                        <option value="FPV Drone Training">FPV Drone Training</option>
+                        <option value="Drone Building Workshop">Drone Building Workshop</option>
+                        <option value="Drone Repair & Maintenance">Drone Repair & Maintenance</option>
+                        <option value="Aerial Photography & Videography">Aerial Photography & Videography</option>
+                        <option value="GIS & Spatial Analysis">GIS & Spatial Analysis</option>
+                        <option value="Autonomous Drone Coding & Python">Autonomous Drone Coding & Python</option>
+                        <option value="AI & Computer Vision for Drones">AI & Computer Vision for Drones</option>
+                        <option value="3D CAD Design & Drone Printing">3D CAD Design & Drone Printing</option>
+                        <option value="Thermal Inspection & Industrial UAV">Thermal Inspection & Industrial UAV</option>
+                        <option value="Drone Swarm Robotics">Drone Swarm Robotics</option>
+                        <option value="Search & Rescue (SAR) Drone Ops">Search & Rescue (SAR) Drone Ops</option>
+                        <option value="Junior Pilot (Grades 5th-10th)">Junior Pilot (Grades 5th-10th)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="enrollMessage">Additional Comments / Prerequisites (Optional)</label>
+                    <textarea id="enrollMessage" class="form-control" placeholder="Any details, prior flight experience, or specific batch timing requests..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Submit Enrollment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-drone"></i>
+                    <span>AeroAcademy</span>
+                </a>
+                <p>Aero Drone Academy is India's leading flight training institute, offering modern simulators, fields, and certified master instructors.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> DGCA Flight Training</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Agriculture Survey</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Drone Building Lab</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> FPV Racing Course</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> School STEM (5th-10th)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Our Academy</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Media Gallery</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive the latest updates about course batches and drone flight workshops.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter email" style="padding: 10px 15px;" required>
+                    <button class="btn-primary" style="padding: 10px 18px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aero Drone Academy. All Rights Reserved. Designed under flight safety protocols.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Check for course parameter to auto-select
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseName = urlParams.get('course');
+            if (courseName) {
+                const selectElement = document.getElementById('enrollCourse');
+                for (let option of selectElement.options) {
+                    if (option.value.toLowerCase() === decodeURIComponent(courseName).toLowerCase()) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

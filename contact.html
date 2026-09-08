@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Aero Drone Academy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-drone"></i>
+                <span>AeroAcademy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-user"></i> Login / Register</a>
+                <a href="enroll.html" class="btn-primary btn-nav-enroll" style="padding: 8px 20px; font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Enroll Now</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="gradient-text">Contact Admissions Office</h1>
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / <span>Contact Us</span>
+        </div>
+    </section>
+
+    <!-- Contact details, form and map -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div>
+                    <div class="contact-card glass-card" style="margin-bottom: 20px;">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <div>
+                                <h4>Main Campus Address</h4>
+                                <p>Plot 42, Aero Space Zone, Sector-18, Baramati City</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card glass-card" style="margin-bottom: 20px;">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            <div>
+                                <h4>Registrar Admissions</h4>
+                                <p>admissions@droneacademy.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card glass-card" style="margin-bottom: 20px;">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <div>
+                                <h4>Admissions Coordinator</h4>
+                                <p>+91 9130261025 (Mon-Sat, 9AM-6PM)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-wrapper">
+                    <!-- Google Map Iframe -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!11m18!1m12!1m3!1d3770.8128308693895!2d73.0125866149027!3d19.072212987088196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c0ab59fd4e55%3A0xc0ffcc2a5cc3ab0c!2sNavi%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="form-wrapper glass-card">
+                <h3 style="font-size: 24px; margin-bottom: 25px; color: var(--color-primary);">Send Us An Inquiry</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="Enter email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMobile">Mobile Number</label>
+                        <input type="tel" id="contactMobile" class="form-control" placeholder="Enter 10-digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactCity">City</label>
+                        <input type="text" id="contactCity" class="form-control" placeholder="Enter city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactCourse">Select Desired Course</label>
+                        <select id="contactCourse" class="form-control" required>
+                            <option value="" disabled selected>Choose a program...</option>
+                            <option value="DGCA Drone Pilot Training">DGCA Drone Pilot Training</option>
+                            <option value="Agriculture Drone Training">Agriculture Drone Training</option>
+                            <option value="Survey & Mapping">Survey & Mapping</option>
+                            <option value="FPV Drone Training">FPV Drone Training</option>
+                            <option value="Drone Building Workshop">Drone Building Workshop</option>
+                            <option value="Drone Repair & Maintenance">Drone Repair & Maintenance</option>
+                            <option value="Aerial Photography & Videography">Aerial Photography & Videography</option>
+                            <option value="Junior Pilot (Grades 5th-10th)">Junior Pilot (Grades 5th-10th)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Inquiry Message / Questions</label>
+                        <textarea id="contactMessage" class="form-control" placeholder="Type your questions here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Apply Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                    <i class="fa-solid fa-drone"></i>
+                    <span>AeroAcademy</span>
+                </a>
+                <p>Aero Drone Academy is India's leading flight training institute, offering modern simulators, fields, and certified master instructors.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Courses</h3>
+                <ul class="footer-links">
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> DGCA Flight Training</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Agriculture Survey</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> Drone Building Lab</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> FPV Racing Course</a></li>
+                    <li><a href="courses.html"><i class="fa-solid fa-chevron-right"></i> School STEM (5th-10th)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Our Academy</a></li>
+                    <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Media Gallery</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-chevron-right"></i> Student Portal</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter to receive the latest updates about course batches and drone flight workshops.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control" placeholder="Enter email" style="padding: 10px 15px;" required>
+                    <button class="btn-primary" style="padding: 10px 18px; border-radius: 8px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aero Drone Academy. All Rights Reserved. Designed under flight safety protocols.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
